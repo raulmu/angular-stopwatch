@@ -21,7 +21,7 @@ export class AppComponent  {
       const audio = new Audio();
       const source = document.createElement('source');
 
-      source.setAttribute('src', '../assets/sounds/beep-start.ogg');
+      source.setAttribute('src', '../assets/sounds/beep-start.mp3');
       source.setAttribute('type', 'audio/ogg');
 
       audio.append(source);
