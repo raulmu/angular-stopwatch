@@ -15,10 +15,22 @@ export class AppComponent  {
     if(!this.isCounting){
       this.isCounting=true;
       console.log('has started');
-      let audio = new Audio();
-      audio.src = '../assets/sounds/beep-start.wav';
-      audio.load();
+      // let audio = new Audio();
+      // audio.src = '../assets/sounds/beep-start.ogg';
+      // source.setAttribute('src', 'AUDIO_URL');
+      const audio = new Audio();
+      const source = document.createElement('source');
+
+      source.setAttribute('src', '../assets/sounds/beep-start.ogg');
+      source.setAttribute('type', 'audio/ogg');
+
+      audio.append(source);
       audio.play();
+
+
+      // audio.setAttribute('type', 'audio/ogg');
+      // audio.load();
+      // audio.play();
       this.interval = window.setInterval(
         () => this.toDo(), 1000
         );
