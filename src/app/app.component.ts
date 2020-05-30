@@ -16,7 +16,7 @@ export class AppComponent  {
       this.isCounting=true;
       console.log('has started');
       let audio = new Audio();
-      audio.src = './assets/sounds/beep-start.mp3';
+      audio.src = '../assets/sounds/beep-start.wav';
       audio.load();
       audio.play();
       this.interval = window.setInterval(
