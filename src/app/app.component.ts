@@ -6,6 +6,35 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  seconds = 40;
+  seconds = 10;
+  isCounting = false;
+  interval;
   name = 'Angular ' + VERSION.major;
+  
+  start() {
+    if(!this.isCounting){
+      this.isCounting=true;
+      console.log('has started');
+      let audio = new Audio();
+      audio.src = './assets/sounds/beep-start.mp3';
+      audio.load();
+      audio.play();
+      this.interval = window.setInterval(
+        () => this.toDo(), 1000
+        );
+    }
+  }
+
+  toDo(){
+    if(!this.seconds) {
+      window.clearInterval(this.interval);
+      this.seconds = 10;
+      this.isCounting = false;
+    } else {
+      console.log(this.seconds);
+      this.seconds=this.seconds - 1;
+    }
+  }
+
+
 }
